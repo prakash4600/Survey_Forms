@@ -52,34 +52,9 @@ router.post("/submit",(req,res)=>
 
 })
 
-router.get("/msg",(req,res)=>{
-    console.log("message called")
-    res.json({message:"hello from message"})
-})
-
-
-router.get("/test",(req, res)=>
-{
-    console.log("saving new user account")
-    const user = new SURVEYUSERS(
-        {
-            username: "new name",
-            email : "as727243@gmail.com",
-            response:"testing"
-            
-        }
-    )
-    
-    user.save()
-    .then((data)=>{ console.log("account created"); res.json({message:"saves success"})}).catch(err =>{error: "error saving data"})
 
 
 
-
-    // res.json({message:"hello from post test"})
-    // console.log("home called ");
-
-})
 
 app.use(express.static(path.join(__dirname,"./survey/build")))
 app.get("*",(req,res)=>
